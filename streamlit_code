@@ -1,0 +1,38 @@
+#install packages
+!pip install pandas geopandas folium
+
+#import pandas library
+import pandas as pd
+
+#load dolphin database
+df = pd.read_csv('dolphindb.csv')
+#read header
+df.head()
+
+#convert dataframe into a geodata frame
+import geopandas as gpd
+from shapely.geometry import Polygon #get shapefile
+
+#import abstract syntax trees to parse data as code
+import ast
+
+# Create a geometry column from latitude and longitude
+geometry = [Point(xy) for xy in zip(df['longitude'], df['latitude'])]
+gdf = gpd.GeoDataFrame(df, geometry=geometry)
+
+# Set the coordinate reference system (CRS) to WGS84
+gdf.set_crs(epsg=4326, inplace=True)
+gdf.head()
+
+#make interactive map with folium
+import folium
+
+#center map around average of coordinates (North Carolina)
+m = folium.Map(location=[gdf['latitude'].mean(), gdf['longitude'].mean()], zoom_start=10)
+
+#add rows for 
+for _, row in gdf.iterrows():
+    folium.Marker(
+        location=[row['latitude'], row['longitude']],
+        popup=f"Dolphin ID: {row['dolphin_id']}<br>Fin Type: {row['fin_type']}<br>Sighting Date: {row['sighting_date']}",
+    ).add_to(m)

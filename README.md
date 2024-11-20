@@ -1,1 +1,2 @@
-# Dolphin_photo_id
+# 859-Final-Project
+For our Dolphin database project
