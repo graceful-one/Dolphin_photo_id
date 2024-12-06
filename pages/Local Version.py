@@ -21,16 +21,22 @@ st.markdown("### Select a Dolphin ID and Observation Date to view details.")
 #Keyword search for dolphin name or fin shape
 keyword = st.text_input("Search by Dolphin Name or Fin Shape (e.g., 'Cookie' or 'Christmas'):")
 
-# Filter dolphins based on the search keyword
+#Prepare unique Dolphin IDs from the dataframe
+dolphin_ids = dolphin_df['Dolphin_ID_Number'].unique()
+
+#If a keyword is provided, filter the dolphins
 if keyword:
     filtered_dolphins = dolphin_df[dolphin_df['Name'].str.contains(keyword, case=False, na=False) |
                                    dolphin_df['Fin_Shape_Family'].str.contains(keyword, case=False, na=False)]
-    
+
     if len(filtered_dolphins) > 0:
         dolphin_ids_key = filtered_dolphins['Dolphin_ID_Number'].unique()
         selected_id = st.selectbox("Keywords Dolphin ID:", ["Select an option..."] + list(dolphin_ids_key), key="selectbox1")
     else:
         st.write("No dolphins found matching the keyword.")
+else:
+    #If no keyword is provided, just use the dropdown for selection
+    selected_id = st.selectbox("Select Dolphin ID:", ["Select an option..."] + list(dolphin_ids))
 
 #%%
 # Prepare unique values
