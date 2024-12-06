@@ -14,12 +14,12 @@ except FileNotFoundError:
 dolphin_df.head()
 
 #%% Title of Application
-st.title("Dolphin Query App")
-st.markdown("### Select a Dolphin ID and Observation Date to view details.")
+st.title("Find a Dolphin🐬")
+st.markdown("### Select a dolphin ID or keywords about dolphin to find more details")
 
 #%% A try on making User text input
 #Keyword search for dolphin name or fin shape
-keyword = st.text_input("Search by Dolphin Name or Fin Shape (e.g., 'Cookie' or 'Christmas'):")
+keyword = st.text_input("Search by Dolphin Name or Fin Shape (e.g., 'Cookie🍪','Christmas🎄','Garlic🧄'):")
 
 #Prepare unique Dolphin IDs from the dataframe
 dolphin_ids = dolphin_df['Dolphin_ID_Number'].unique()
@@ -105,6 +105,8 @@ if st.button("Show Dolphin Details"):
                 st.line_chart(
                     data=sight_numbers.set_index('Trip Date'),
                     y='Sight #',
+                    y_label = "Count of Sighting",
+                    color = "#1134A6",
                     use_container_width=True
                 )
             else:
