@@ -26,7 +26,7 @@ with st.form(key="data_entry_form"):
   #autonum
   #trip_date = st.date_input(format="YYYY/MM/DD") #https://docs.streamlit.io/develop/api-reference/widgets/st.date_input
   #trip_time = st.time_input() #https://docs.streamlit.io/develop/api-reference/widgets/st.time_input
-  trip_num = st.text_input("Trip #) #https://docs.streamlit.io/develop/api-reference/widgets/st.time_input
+  trip_num = st.text_input("Trip #") #https://docs.streamlit.io/develop/api-reference/widgets/st.time_input
   sight_num = st.number_input("Sight #") #https://docs.streamlit.io/develop/api-reference/widgets/st.number_input
   dolphin_id_num = st.number_input("Dolphin ID Number")
   new_dolphin = st.checkbox("New Dolphin?") #https://docs.streamlit.io/develop/api-reference/widgets/st.checkbox
