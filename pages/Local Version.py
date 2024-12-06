@@ -1,21 +1,7 @@
 #%% Prepare Packages
-import subprocess
-import sys
-
-# Function to install a package
-def install_and_import(package):
-    try:
-        __import__(package)
-    except ImportError:
-        print(f"{package} not found. Installing...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-# List of required packages
-required_packages = ["streamlit", "matplotlib", "seaborn", "pandas"]
-
-# Install required packages
-for package in required_packages:
-    install_and_import(package)
+conda create --name dolphin_app python=3.9 matplotlib seaborn pandas streamlit
+conda activate dolphin_app
+conda env export > environment.yml
     
 import pandas as pd
 import streamlit as st
