@@ -39,11 +39,20 @@ selected_id_two = st.selectbox("Select Dolphin ID:", ["Select an option..."] + l
 
 #%% Dolphin information that quried out
 if st.button("Show Dolphin Details"):
-    if selected_id or select_id_two != "Select an option...":
-        result = dolphin_df[(dolphin_df['Dolphin_ID_Number'] == selected_id)]
+     # Determine which Dolphin ID was selected
+    if selected_id != "Select an option...":
+        dolphin_id = selected_id
+    elif selected_id_two != "Select an option...":
+        dolphin_id = selected_id_two
+    else:
+        st.error("Please select a valid Dolphin ID.")
+        dolphin_id = None  # Ensure no further processing occurs
+    
+    if dolphin_id:  # Proceed only if a valid dolphin_id exists
+        result = dolphin_df[dolphin_df['Dolphin_ID_Number'] == dolphin_id]
         
         if not result.empty:
-            st.write(f"### Information for Dolphin ID: {selected_id}")
+            st.write(f"### Information for Dolphin ID: {dolphin_id}")
 
             #%% Display Name if it exists
             dolphin_name = result.iloc[0]['Name']
@@ -76,7 +85,7 @@ if st.button("Show Dolphin Details"):
 
             #%% A Large Section of Displaying Date of Observations, with a plot showing frequency of sighting
 
-            obs_dates = observations_df[observations_df['Dolphin ID Number'] == selected_id]['Trip Date'].unique()
+            obs_dates = observations_df[observations_df['Dolphin ID Number'] == dolphin_id]['Trip Date'].unique()
             obs_dates = pd.to_datetime(obs_dates, errors='coerce')  # Convert to datetime
 
             #Sort dates in ascending order
@@ -85,7 +94,7 @@ if st.button("Show Dolphin Details"):
             st.write("### Observed on:")
 
             #Prepare sight numbers for plotting
-            sight_numbers = observations_df[observations_df['Dolphin ID Number'] == selected_id]
+            sight_numbers = observations_df[observations_df['Dolphin ID Number'] == dolphin_id]
             sight_numbers = sight_numbers[['Trip Date', 'Sight #']]
 
             # Convert 'Trip Date' to datetime and sort the data
