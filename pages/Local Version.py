@@ -85,7 +85,7 @@ if st.button("Show Dolphin Details"):
             st.write("### Observed on:")
 
             #Prepare sight numbers for plotting
-            sight_numbers = observations_df[observations_df['Dolphin ID Number'] == dolphin_id]
+            sight_numbers = observations_df[observations_df['Dolphin ID Number'] == selected_id]
             sight_numbers = sight_numbers[['Trip Date', 'Sight #']]
 
             # Convert 'Trip Date' to datetime and sort the data
