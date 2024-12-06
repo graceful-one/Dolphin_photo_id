@@ -1,6 +1,7 @@
 #%% Prepare Packages
 import pandas as pd
 import streamlit as st
+pip install matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 
