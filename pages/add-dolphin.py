@@ -44,7 +44,7 @@ with st.form(key="data_entry_form"):
 
 updated_data = exisiting_data.append(new_row, ignore_index=True) # append new row to exisiting data
 
-with pd.ExcelWriter(file_path, engine='openpyxl', mode='a', if_sheet_exisits='overlay' as writer:
+with pd.ExcelWriter(file_path, engine='openpyxl', mode='a', if_sheet_exisits='overlay') as writer:
     updated_data.to_excel(writer, index=False) #save updated dataframe
 
 st.success("Observation added.")
