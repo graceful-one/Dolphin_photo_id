@@ -1,12 +1,6 @@
-#%% Prepare Packages
-conda create --name dolphin_app python=3.9 matplotlib seaborn pandas streamlit
-conda activate dolphin_app
-conda env export > environment.yml
-    
+#%% Prepare Packages  
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 #%% Get Data In
 try:
@@ -90,23 +84,24 @@ if st.button("Show Dolphin Details"):
 
             st.write("### Observed on:")
 
-            #Plot the "Sight #" values for each observation date
-            sight_numbers = observations_df[observations_df['Dolphin ID Number'] == selected_id]
+            #Prepare sight numbers for plotting
+            sight_numbers = observations_df[observations_df['Dolphin ID Number'] == dolphin_id]
             sight_numbers = sight_numbers[['Trip Date', 'Sight #']]
 
-            #Convert 'Trip Date' to datetime and sort the data
+            # Convert 'Trip Date' to datetime and sort the data
             sight_numbers['Trip Date'] = pd.to_datetime(sight_numbers['Trip Date'], errors='coerce')
             sight_numbers = sight_numbers.dropna().sort_values('Trip Date')
+            sight_numbers = sight_numbers.groupby('Trip Date')['Sight #'].sum().reset_index()
 
-            #Create the plot
-            plt.figure(figsize=(10, 6))
-            sns.lineplot(data=sight_numbers, x='Trip Date', y='Sight #', marker='o', color='b')
-            plt.title(f"Sightings for Dolphin ID: {selected_id}")
-            plt.xlabel("Date Observed")
-            plt.ylabel("Counts of Sighting")
-            plt.xticks(rotation=45)
-            plt.yticks(range(0, int(sight_numbers['Sight #'].max()) + 1))
-            st.pyplot(plt)
+            # Plot using Streamlit's line_chart
+            if not sight_numbers.empty:
+                st.line_chart(
+                    data=sight_numbers.set_index('Trip Date'),
+                    y='Sight #',
+                    use_container_width=True
+                )
+            else:
+                st.write("No sightings data available for the selected Dolphin ID.")
 
             #Generate table of observation date
             if len(obs_dates) > 0:
