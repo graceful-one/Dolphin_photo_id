@@ -17,7 +17,7 @@ except Exception as e: #from python to handle errors
     existing_data = None #if file is missing or invalid, program does not crash
 
 #set up streamlit app
-st.title("Dolphin Observation Data Entry)
+st.title("Dolphin Observation Data Entry")
 st.write("Add new observation data to the database.")
 
 #create a form 
@@ -40,3 +40,5 @@ with st.form(key="data_entry_form"):
   overall = st.number_input("Overall")
   distinctiveness = st.number_input("Distinctiveness")
   verified = st.checkbox("Verified")
+
+  
