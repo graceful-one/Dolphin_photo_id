@@ -19,7 +19,7 @@ st.markdown("### Select a dolphin ID or keywords about dolphin to find more deta
 
 #%% A try on making User text input
 #Keyword search for dolphin name or fin shape
-keyword = st.text_input("Search by Dolphin Name or Fin Shape (e.g., 'Cookie'🍪,'Christmas'🎄,'Garlic'🧄):")
+keyword = st.text_input("Search by Dolphin Name or Fin Shape (e.g., 'Cookie'🍪, 'Christmas'🎄, 'Garlic'🧄):")
 
 #Prepare unique Dolphin IDs from the dataframe
 dolphin_ids = dolphin_df['Dolphin_ID_Number'].unique()
