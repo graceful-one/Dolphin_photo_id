@@ -39,18 +39,17 @@ selected_id_two = st.selectbox("Select Dolphin ID:", ["Select an option..."] + l
 
 #%% Dolphin information that quried out
 if st.button("Show Dolphin Details"):
-     # Determine which Dolphin ID was selected
+    dolphin_id = None
+
+    # Determine which Dolphin ID was selected
     if selected_id != "Select an option...":
         dolphin_id = selected_id
     elif selected_id_two != "Select an option...":
         dolphin_id = selected_id_two
-    else:
-        st.error("Please select a valid Dolphin ID.")
-        dolphin_id = None  # Ensure no further processing occurs
     
     if dolphin_id:  # Proceed only if a valid dolphin_id exists
         result = dolphin_df[dolphin_df['Dolphin_ID_Number'] == dolphin_id]
-        
+
         if not result.empty:
             st.write(f"### Information for Dolphin ID: {dolphin_id}")
 
