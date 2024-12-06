@@ -3,6 +3,7 @@ import os
 import streamlit as st
 import datetime
 import pandas as pd
+pip install openpyxl
 from openpyxl import load_workbook
 import uuid
 
