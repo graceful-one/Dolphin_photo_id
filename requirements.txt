@@ -4,3 +4,6 @@ dropbox
 pillow
 numpy
 requests
+datetime
+openpyxl
+uuid
