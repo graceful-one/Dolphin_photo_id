@@ -1,23 +1,22 @@
 import streamlit as st
 import pandas as pd
 
-#convert data into a dataframe
-df = pd.DataFrame(tblDolphin.csv)
+tblDolphin = './data/tblDolphin.csv' 
+df = pd.DataFrame(tblDolphin) #convert data into a dataframe
+st.title("Dolphin Sightings Viewer") #streamlit title
 
-#streamlit title
-st.title("Dolphin Sightings Viewer")
-
-#streamlit dropdown 
-dolphins = df["Dolphin_Name"].unique()
+dolphins = df["Dolphin_Name"].unique() #streamlit dropdown 
 selected_dolphin = st.selectbox("Select a Dolphin:", options=dolphins)
 
-#filter sightings for dolphin
-filtered_data = df[df["Dolphin_Name"] == selected_dolphin]
+filtered_data = df[df["Dolphin_Name"] == selected_dolphin] #filter sightings for dolphin
 
-#display results
-st.subheader(f"Sightings for {selected_dolphin}:")
+st.subheader(f"Sightings for {selected_dolphin}:") #display results
 if not filtered_data.empty:
     for _, row in filtered_data.iterrows():
         st.write(f"Location: {row['Location']}, Date: {row['Date']}")
 else:
     st.write("No sightings found for this dolphin.")
+
+location_file_path = './data/tblLocation.csv' 
+location_data = pd.read_csv(location_file_path) #read csv
+location_data.head() #read header
