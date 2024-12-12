@@ -22,7 +22,7 @@ st.title("Dolphin Observation Data Entry")
 st.write("Add new observation data to the database.")
 
 #create a form 
-with st.form(key="data_entry_form"):
+with st.form(key="data_entry_form"):{
   st.subheader("Enter Observation Details") #ask user questions
   #autonum
   #trip_date = st.date_input(format="YYYY/MM/DD") #https://docs.streamlit.io/develop/api-reference/widgets/st.date_input
