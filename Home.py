@@ -10,5 +10,5 @@ st.markdown("<p style='color:grey; margin-left: 100px;'>---Find information by d
 st.page_link("pages/photo_query.py", label="Gallery", icon="2️⃣") 
 st.markdown("<p style='color:grey; margin-left: 100px;'>---If you only looking for the fin photo</p>", unsafe_allow_html=True)
 
-st.page_link("pages/add_dolphin.py", label="Add A Dolphin", icon="3️⃣") 
+st.page_link("pages/add_a_dolphin.py", label="Add A Dolphin", icon="3️⃣") 
 st.markdown("<p style='color:grey; margin-left: 100px;'>---Add your dolphin observations</p>", unsafe_allow_html=True)
