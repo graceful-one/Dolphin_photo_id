@@ -9,8 +9,8 @@ import io
 
 #%% Get Data In
 try:
-    dolphin_df = pd.read_csv(r"tblDolphin.csv", encoding="ISO-8859-1")
-    observations_df = pd.read_csv(r"tblDolphinsObserved.csv", encoding="ISO-8859-1")
+    dolphin_df = pd.read_csv(r"data/tblDolphin.csv", encoding="ISO-8859-1")
+    observations_df = pd.read_csv(r"data/tblDolphinsObserved.csv", encoding="ISO-8859-1")
 except UnicodeDecodeError:
     st.error("There was an error reading the file due to encoding issues.")
 except FileNotFoundError:
