@@ -5,5 +5,5 @@ import pandas as pd
 st.title("Home Page")
 
 st.page_link("pages/SearchADolphin.py", label="Find A Dolphin🐬", icon="1️⃣")
-st.write("    ---Find information by dolphin ID")
+st.markdown("<p style='color:grey; margin-left: 20px;'>---Find information by dolphin ID</p>", unsafe_allow_html=True)
 st.page_link("pages/photo_query.py", label="Gallery", icon="2️⃣") 
