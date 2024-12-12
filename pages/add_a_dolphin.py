@@ -41,8 +41,7 @@ with st.form(key="data_entry_form"):
   overall = st.number_input("Overall")
   distinctiveness = st.number_input("Distinctiveness")
   verified = st.checkbox("Verified")
-
-st.form_submit_button()
+  submitted = st.form_submit_button("Submit")
 
 if submitted:
     new_row = { #dictionary
