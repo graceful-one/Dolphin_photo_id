@@ -1,6 +1,7 @@
 #%% Prepare Packages  
 import pandas as pd
 import streamlit as st
+import io
 import pip
 def install(package):
     if hasattr(pip, 'main'):
@@ -11,7 +12,6 @@ install("dropbox")
 import dropbox
 from PIL import Image
 import numpy as np
-import io
 import requests
 
 #%% Get Data In
