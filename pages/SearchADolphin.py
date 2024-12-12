@@ -1,6 +1,13 @@
 #%% Prepare Packages  
 import pandas as pd
 import streamlit as st
+import pip
+def install(package):
+    if hasattr(pip, 'main'):
+        pip.main(['install', package])
+    else:
+        pip._internal.main(['install', package])
+install("dropbox")
 import dropbox
 from PIL import Image
 import numpy as np
