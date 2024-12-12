@@ -1,0 +1,6 @@
+pandas
+streamlit
+dropbox
+pillow
+numpy
+requests
