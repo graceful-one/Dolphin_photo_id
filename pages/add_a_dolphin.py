@@ -11,6 +11,7 @@ file_path = './tblDolphin.csv'
 #load excel file
 if os.path.exists(file_path):
     existing_data = pd.read_csv(file_path, encoding="ISO-8859-1") #from pandas, used to read file
+    "good"
 else:
     exisiting_data = pd.DataFrame(columns=[
         "Trip #", "Sight #", "Dolphin ID Number", "New Dolphin?", "Resight?",
