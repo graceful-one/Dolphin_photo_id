@@ -5,5 +5,5 @@ import pandas as pd
 st.title("Home Page")
 
 st.page_link("pages/SearchADolphin.py", label="Find A Dolphin🐬", icon="1️⃣")
-st.write("**Find information by dolphin ID")
+st.write("    ---Find information by dolphin ID")
 st.page_link("pages/photo_query.py", label="Gallery", icon="2️⃣") 
