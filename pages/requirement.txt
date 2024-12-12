@@ -4,3 +4,4 @@ dropbox
 pillow
 numpy
 requests
+io
