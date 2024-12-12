@@ -6,7 +6,7 @@ import pandas as pd
 import uuid
 
 #load existing dolphin observation dataset
-file_path = './tblDolphin.csv'
+file_path = './data/tblDolphin.csv'
 
 #load excel file
 if os.path.exists(file_path):
