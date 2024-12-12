@@ -118,15 +118,15 @@ if st.button("Show Dolphin Details"):
 
             #%% Display DEAD status: If Dead is False, display alive message, else highlight "DEAD" in red
             if result.iloc[0]['Dead'] == False:
-                st.write("**Life Condition: Dolphin is still alive**")
+                st.write("**Life Condition:** Dolphin is still alive")
             else:
                 st.markdown("<span style='color:red;'>**DEAD**</span>", unsafe_allow_html=True)
 
             #%% Display Gender information: Check if known female
             if result.iloc[0]['Known_Female'] == True:
-                st.write("**Gender: She is a known female dolphin**")
+                st.write("**Gender:** She is a known female dolphin")
             else:
-                st.write("**Gender: Not Confirmed**")
+                st.write("**Gender:** Not Confirmed")
 
             #%% Display Comments if any content exists
             dolphin_comments = result.iloc[0]['Comments']
