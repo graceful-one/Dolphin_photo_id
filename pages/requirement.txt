@@ -1,7 +1,0 @@
-pandas
-streamlit
-dropbox
-pillow
-numpy
-requests
-io
