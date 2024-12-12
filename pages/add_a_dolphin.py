@@ -43,6 +43,8 @@ with st.form(key="data_entry_form"):
   verified = st.checkbox("Verified")
   }
 
+st.form_submit_button()
+
 if submitted:
     new_row = { #dictionary
         "Trip #": trip_num,
