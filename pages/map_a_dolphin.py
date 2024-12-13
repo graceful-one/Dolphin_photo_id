@@ -25,7 +25,7 @@ else:
     #If no keyword is provided, just use the dropdown for selection
     selected_id = st.selectbox("Select Dolphin ID:", ["Select an option..."] + list(dolphin_ids))
 
-filtered_data = df["Dolphin_ID_Number"] == selected_id #filter sightings for dolphin
+filtered_data = dolphin_df["Dolphin_ID_Number"] == selected_id #filter sightings for dolphin
 
 if st.button("Show Dolphin Details"):
     if selected_id != "Select an option...":
