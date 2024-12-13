@@ -4,6 +4,10 @@ import pandas as pd
 dolphin_df = pd.read_csv(r"data/tblDolphin.csv", encoding="ISO-8859-1") #convert data into a dataframe
 st.title("Dolphin Sightings Viewer") #streamlit title
 
+#%% A try on making User text input
+#Keyword search for dolphin name or fin shape
+keyword = st.text_input("Search by Dolphin Name or Fin Shape (e.g., 'Cookie'🍪, 'Christmas'🎄, 'Garlic'🧄):")
+
 #Prepare unique Dolphin IDs from the dataframe
 dolphin_ids = dolphin_df['Dolphin_ID_Number'].unique()
 
@@ -20,8 +24,6 @@ if keyword:
 else:
     #If no keyword is provided, just use the dropdown for selection
     selected_id = st.selectbox("Select Dolphin ID:", ["Select an option..."] + list(dolphin_ids))
-
-
 
 filtered_data = df[df["Dolphin_ID_Number"] == selected_id] #filter sightings for dolphin
 
