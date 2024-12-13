@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-tblDolphin = '/data/tblDolphin.csv' 
+tblDolphin = 'data/tblDolphin.csv' 
 df = pd.DataFrame(tblDolphin) #convert data into a dataframe
 st.title("Dolphin Sightings Viewer") #streamlit title
 
