@@ -61,7 +61,8 @@ if submitted:
         "Verified": verified,
     }
 
-updated_data = existing_data.append(new_row, ignore_index=True) #append new row 
+new_row_df = pd.DataFrame([new_row])  # turn new row into df
+updated_data = pd.concat([existing_data, new_row_df], ignore_index=True) #append new row 
 
 updated_data.to_csv(file_path, index=False) #save updates
 
