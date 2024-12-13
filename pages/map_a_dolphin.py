@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-tblDolphin = 'data/tblDolphin.csv' 
-df = pd.DataFrame(tblDolphin) #convert data into a dataframe
+pd.read_csv(r"data/tblDolphin.csv", encoding="ISO-8859-1") #convert data into a dataframe
 st.title("Dolphin Sightings Viewer") #streamlit title
 
 dolphins = df["Dolphin_Name"].unique() #streamlit dropdown 
