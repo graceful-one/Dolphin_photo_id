@@ -25,14 +25,18 @@ else:
     #If no keyword is provided, just use the dropdown for selection
     selected_id = st.selectbox("Select Dolphin ID:", ["Select an option..."] + list(dolphin_ids))
 
-filtered_data = df[df["Dolphin_ID_Number"] == selected_id] #filter sightings for dolphin
+filtered_data = df["Dolphin_ID_Number"] == selected_id #filter sightings for dolphin
 
-st.subheader(f"Sightings for {selected_id}:") #display results
-if not filtered_data.empty:
-    for _, row in filtered_data.iterrows():
-        st.write(f"Location: {row['Location']}, Date: {row['Date']}")
-else:
-    st.write("No sightings found for this dolphin.")
+if st.button("Show Dolphin Details"):
+    if selected_id != "Select an option...":
+        st.subheader(f"Sightings for {selected_id}:") #display results
+        if not filtered_data.empty:
+            for _, row in filtered_data.iterrows():
+                st.write(f"Location: {row['Location']}, Date: {row['Date']}")
+        else:
+            st.write("No sightings found for this dolphin.")
+
+
 
 location_file_path = './data/tblLocation.csv' 
 location_data = pd.read_csv(location_file_path) #read csv
