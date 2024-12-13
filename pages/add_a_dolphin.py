@@ -59,11 +59,7 @@ if submitted:
         "Overall": overall,
         "Distinctiveness": distinctiveness,
         "Verified": verified,
+        
     }
-
-new_row_df = pd.DataFrame([new_row])  # turn new row into df
-updated_data = pd.concat([existing_data, new_row_df], ignore_index=True) #append new row 
-
-updated_data.to_csv(file_path, index=False) #save updates
-
-st.success("Observation added!") #confirm data addition
+    updated_data.to_csv(file_path, index=False) #save updates
+    st.success("Observation added!") #confirm data addition
