@@ -118,7 +118,7 @@ if st.button("Show Dolphin Details"):
 
             #%% Display DEAD status: If Dead is False, display alive message, else highlight "DEAD" in red
             if result.iloc[0]['Dead'] == False:
-                st.write("**Life Condition:** Dolphin is still alive")
+                st.write("**Life Condition:** Dolphin may still be alive")
             else:
                 st.markdown("<span style='color:red;'>**DEAD**</span>", unsafe_allow_html=True)
 
